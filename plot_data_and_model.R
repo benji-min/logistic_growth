@@ -1,6 +1,6 @@
 #Script to plot data and model
-
-growth_data <- read.csv("???")
+library(ggplot2)
+growth_data <- read.csv("experiment.csv")
 
 logistic_fun <- function(t) {
   
@@ -10,13 +10,13 @@ logistic_fun <- function(t) {
   
 }
 
-N0 <- ??? #
+N0 <- exp(6.8941709)  # initial population size at the start
   
-r <- ??? #
+r <-  0.0100086 # gto from t intercept of out model
   
-K <- ??? #
+K <- 6.00e+10 # maximum populaiton
 
-ggplot(aes(???,???), data = growth_data) +
+ggplot(aes(t, N), data = growth_data) +
   
   geom_function(fun=logistic_fun, colour="red") +
   
